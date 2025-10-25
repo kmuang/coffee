@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chalkboard Coffee Shop Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <link rel="shortcut icon" href="img/coffee.jpeg" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+    body {
+      font-family: 'Patrick Hand', cursive;
+      background: #1a1a1a; /* chalkboard dark */
+      color: #f5f5f5; /* chalk white */
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 0.8rem;
+      text-shadow: 1px 1px 0px #000;
+    }
+
+    .menu-section {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0; /* reduced vertical padding */
+      border-bottom: 1px dashed #fff;
+      font-size: 1.2rem;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      border-top: 2px dashed #fff;
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+    }
+
+    .social-icons img {
+      width: 25px;
+      height: 25px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+ <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top hover:bg-white-500">
+    <a class="navbar-brand ml-5 text-xl" href="index.html"> 📍Home </a>  
+    
+  </nav> 
+  <!-- Header -->
+  <h1 class="text-4xl text-center mt-5">☕ Chalkboard Coffee</h1>
+  <p class="text-center mb-6">Your perfect cup, served with love</p>
+
+  <!-- Menu Section -->
+  <div class="menu-section">
+    <h2 class="text-2xl">Our Menu</h2>
+    
+    <div class="menu-item">
+      <span>Espresso</span>
+      <span>$3.00</span>
+    </div>
+    <div class="menu-item">
+      <span>Latte</span>
+      <span>$4.00</span>
+    </div>
+    <div class="menu-item">
+      <span>Cappuccino</span>
+      <span>$4.50</span>
+    </div>
+    <div class="menu-item">
+      <span>Mocha</span>
+      <span>$4.75</span>
+    </div>
+    <div class="menu-item">
+      <span>Macchiato</span>
+      <span>$4.25</span>
+    </div>
+    <div class="menu-item">
+      <span>Iced Coffee</span>
+      <span>$4.00</span>
+    </div>
+    <div class="menu-item">
+      <span>Flat White</span>
+      <span>$4.50</span>
+    </div>
+    <div class="menu-item">
+      <span>Irish Coffee</span>
+      <span>$5.50</span>
+    </div>
+    <div class="menu-item">
+      <span>Ristretto</span>
+      <span>$3.50</span>
+    </div>
+    <div class="menu-item">
+      <span>Affogato</span>
+      <span>$4.80</span>
+    </div>
+    <div class="menu-item">
+      <span>Cold Brew</span>
+      <span>$4.20</span>
+    </div>
+    <div class="menu-item">
+      <span>Caramel Latte</span>
+      <span>$4.60</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Chalkboard Coffee. All Rights Reserved.</p>
+ 
+  </footer>
+
+</body>
+</html>
