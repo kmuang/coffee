@@ -1,102 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coffee Shop</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
-    <link rel="shortcut icon" href="img/coffee.jpeg" type="image/jpeg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop</title>
+  <link rel="shortcut icon" href="img/coffee.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-    <style>
-        .hero {
-            background: url('https://source.unsplash.com/1600x900/?coffee') no-repeat center center;
-            background-size: cover;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        } 
-    </style>
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400') no-repeat center center;
+      background-size: cover;
+      color: white;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5); /* Dark overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 15px;
+    }
+
+    /* Menu images */
+    .card-img-top {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    /* Menu hover overlay */
+    .menu-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .menu-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 10px;
+      font-size: 0.9rem;
+    }
+    .menu-card:hover .overlay {
+      opacity: 1;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+    .card-title {
+      font-size: 1rem;
+    }
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 15px 0;
+    }
+    footer a {
+      color: white;
+    }
+    footer a:hover {
+      text-decoration: none;
+    }
+
+    /* Social icons */
+    .social-icon img.icon {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      transition: transform 0.3s, filter 0.3s;
+    }
+    .social-icon img.icon:hover {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .card-img-top {
+        height: 120px;
+      }
+      .card-title {
+        font-size: 0.95rem;
+      }
+      .card-text {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Coffee Shop</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#menu">Menu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#">"Good days start with coffee ☕" </a>  
+    <button class="btn btn-outline-secondary" type="button" onclick="location.href='chalkboard.html'">☕ Chalkboard Style
+    </button>
+  </nav> 
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="display-4 font-weight-bold">Welcome to Our Coffee Shop</h1>
+      <p class="lead">Your perfect cup of coffee awaits!</p>
+    </div>
+  </div>
+
+  <!-- Menu Section -->
+  <div class="container my-5" id="menu">
+    <h2 class="text-center mb-4">Our Menu</h2>
+    <div class="row">
+
+      <!-- Original 8 coffees -->
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/expres.jpg" class="card-img-top" alt="Espresso">
+          <div class="overlay">
+            <p>Strong and bold espresso shot with rich aroma.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Espresso</h5>
+            <p class="card-text">$3.00</p>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Welcome to Our Coffee Shop</h1>
-        <p>Your perfect cup of coffee awaits!</p>
-    </div>
-
-    <!-- Menu Section -->
-    <div class="container my-5" id="menu">
-        <h2 class="text-center">Our Menu</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/expres.jpg" class="card-img-top" alt="Espresso">
-                    <div class="card-body">
-                        <h5 class="card-title">Espresso</h5>
-                        <p class="card-text">$3.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/lat.jpg" class="card-img-top" alt="Latte">
-                    <div class="card-body">
-                        <h5 class="card-title">Latte</h5>
-                        <p class="card-text">$4.00</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/capu.jpg" class="card-img-top" alt="Cappuccino">
-                    <div class="card-body">
-                        <h5 class="card-title">Cappuccino</h5>
-                        <p class="card-text">$4.50</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/lat.jpg" class="card-img-top" alt="Latte">
+          <div class="overlay">
+            <p>Creamy latte with steamed milk and a smooth finish.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Latte</h5>
+            <p class="card-text">$4.00</p>
+          </div>
         </div>
-    </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/capu.jpg" class="card-img-top" alt="Cappuccino">
+          <div class="overlay">
+            <p>Espresso with frothy milk foam and a rich taste.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Cappuccino</h5>
+            <p class="card-text">$4.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1580661869408-55ab23f2ca6e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YW1lcmljYW5vJTIwY29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Americano">
+          <div class="overlay">
+            <p>Hot espresso diluted with hot water, light and smooth.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Americano</h5>
+            <p class="card-text">$3.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1618576230663-9714aecfb99a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9jaGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Mocha">
+          <div class="overlay">
+            <p>Chocolate-flavored coffee topped with whipped cream.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Mocha</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1567423347190-97f2dfd99f9c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjaGlhdHRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Macchiato">
+          <div class="overlay">
+            <p>Espresso “stained” with a dash of frothy milk.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Macchiato</h5>
+            <p class="card-text">$4.25</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxhdCUyMHdoaXRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Flat White">
+          <div class="overlay">
+            <p>Velvety microfoam milk with smooth espresso.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Flat White</h5>
+            <p class="card-text">$4.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://plus.unsplash.com/premium_photo-1669687924558-386bff1a0469?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aXJpc2glMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Irish Coffee">
+          <div class="overlay">
+            <p>Warm coffee with Irish whiskey and whipped cream.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Irish Coffee</h5>
+            <p class="card-text">$5.50</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Contact Section -->
-    <div class="container my-5" id="contact">
-        <h2 class="text-center">Contact Us</h2>
-        <form>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" id="message" rows="3" placeholder="Your message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
+      <!-- Additional 6 coffees -->
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyYW1lbCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Caramel Latte">
+          <div class="overlay">
+            <p>Sweet caramel syrup blended with steamed milk and espresso.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Caramel Latte</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1683122925249-8b15d807db4b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFuaWxsYSUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Vanilla Latte">
+          <div class="overlay">
+            <p>Espresso with steamed milk and rich vanilla flavor.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Vanilla Latte</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1625862956143-6a50e41200b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGF6ZW51dCUyMGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Hazelnut Coffee">
+          <div class="overlay">
+            <p>Espresso with hazelnut syrup and milk.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Hazelnut Coffee</h5>
+            <p class="card-text">$4.80</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlJTIwY29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Iced Latte">
+          <div class="overlay">
+            <p>Cold espresso with milk and ice cubes.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Iced Latte</h5>
+            <p class="card-text">$4.25</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1638543284847-3a6bed3e1689?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZmb2dhdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Affogato">
+          <div class="overlay">
+            <p>Espresso poured over vanilla ice cream for dessert coffee.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Affogato</h5>
+            <p class="card-text">$5.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1564919152540-a4c47d028cab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmlzdHJldHRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Ristretto">
+          <div class="overlay">
+            <p>Shorter and more concentrated espresso for intense flavor.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Ristretto</h5>
+            <p class="card-text">$3.50</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 Coffee Shop. All rights reserved.</p>
+     
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
