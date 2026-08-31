@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop</title>
+  <link rel="shortcut icon" href="img/coffee.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400') no-repeat center center;
+      background-size: cover;
+      color: white;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5); /* Dark overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 15px;
+    }
+
+    /* Menu images */
+    .card-img-top {
+      height: 150px;
+      object-fit: cover;
+    }
+
+    /* Menu cards */
+    .menu-card {
+      position: relative;
+    }
+
+    .menu-card .overlay {
+      display: none;
+    }
+
+    .card-body {
+      padding: 10px;
+    }
+    .card-title {
+      font-size: 1rem;
+    }
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    .add-to-cart {
+      margin-top: 0.25rem;
+    }
+
+    #cart {
+      position: sticky;
+      bottom: 0;
+      background: #fff;
+      border-top: 1px solid #dee2e6;
+      box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+    }
+
+    #cart-items {
+      max-height: 110px;
+      overflow-y: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 15px 0;
+    }
+    footer a {
+      color: white;
+    }
+    footer a:hover {
+      text-decoration: none;
+    }
+
+    /* Social icons */
+    .social-icon img.icon {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      transition: transform 0.3s, filter 0.3s;
+    }
+    .social-icon img.icon:hover {
+      transform: scale(1.2);
+      filter: brightness(1.3);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+      .card-img-top {
+        height: 120px;
+      }
+      .card-title {
+        font-size: 0.95rem;
+      }
+      .card-text {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#">"Good days start with coffee ☕" </a>  
+    <button class="btn btn-outline-secondary" type="button" onclick="location.href='chalkboard.html'">☕ Chalkboard Style
+    </button>
+  </nav> 
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1 class="display-4 font-weight-bold">Welcome to Our Coffee Shop</h1>
+      <p class="lead">Your perfect cup of coffee awaits!</p>
+    </div>
+  </div>
+
+  <!-- Menu Section -->
+  <div class="container my-5" id="menu">
+    <h2 class="text-center mb-4">Our Menu</h2>
+    <div class="row">
+
+      <!-- Original 8 coffees -->
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/expres.jpg" class="card-img-top" alt="Espresso">
+          <div class="overlay">
+            <p>Strong and bold espresso shot with rich aroma.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Espresso</h5>
+            <p class="card-text">$3.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/lat.jpg" class="card-img-top" alt="Latte">
+          <div class="overlay">
+            <p>Creamy latte with steamed milk and a smooth finish.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Latte</h5>
+            <p class="card-text">$4.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="img/capu.jpg" class="card-img-top" alt="Cappuccino">
+          <div class="overlay">
+            <p>Espresso with frothy milk foam and a rich taste.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Cappuccino</h5>
+            <p class="card-text">$4.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1580661869408-55ab23f2ca6e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YW1lcmljYW5vJTIwY29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Americano">
+          <div class="overlay">
+            <p>Hot espresso diluted with hot water, light and smooth.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Americano</h5>
+            <p class="card-text">$3.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1618576230663-9714aecfb99a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9jaGF8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Mocha">
+          <div class="overlay">
+            <p>Chocolate-flavored coffee topped with whipped cream.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Mocha</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1567423347190-97f2dfd99f9c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFjaGlhdHRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Macchiato">
+          <div class="overlay">
+            <p>Espresso “stained” with a dash of frothy milk.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Macchiato</h5>
+            <p class="card-text">$4.25</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmxhdCUyMHdoaXRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Flat White">
+          <div class="overlay">
+            <p>Velvety microfoam milk with smooth espresso.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Flat White</h5>
+            <p class="card-text">$4.50</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://plus.unsplash.com/premium_photo-1669687924558-386bff1a0469?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aXJpc2glMjBjb2ZmZWV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Irish Coffee">
+          <div class="overlay">
+            <p>Warm coffee with Irish whiskey and whipped cream.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Irish Coffee</h5>
+            <p class="card-text">$5.50</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional 6 coffees -->
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FyYW1lbCUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Caramel Latte">
+          <div class="overlay">
+            <p>Sweet caramel syrup blended with steamed milk and espresso.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Caramel Latte</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1683122925249-8b15d807db4b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFuaWxsYSUyMGxhdHRlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Vanilla Latte">
+          <div class="overlay">
+            <p>Espresso with steamed milk and rich vanilla flavor.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Vanilla Latte</h5>
+            <p class="card-text">$4.75</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1625862956143-6a50e41200b9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGF6ZW51dCUyMGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Hazelnut Coffee">
+          <div class="overlay">
+            <p>Espresso with hazelnut syrup and milk.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Hazelnut Coffee</h5>
+            <p class="card-text">$4.80</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aWNlJTIwY29mZmVlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Iced Latte">
+          <div class="overlay">
+            <p>Cold espresso with milk and ice cubes.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Iced Latte</h5>
+            <p class="card-text">$4.25</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1638543284847-3a6bed3e1689?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWZmb2dhdG98ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Affogato">
+          <div class="overlay">
+            <p>Espresso poured over vanilla ice cream for dessert coffee.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Affogato</h5>
+            <p class="card-text">$5.00</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 mb-3">
+        <div class="card menu-card">
+          <img src="https://images.unsplash.com/photo-1564919152540-a4c47d028cab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmlzdHJldHRvfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=1400" class="card-img-top" alt="Ristretto">
+          <div class="overlay">
+            <p>Shorter and more concentrated espresso for intense flavor.</p>
+          </div>
+          <div class="card-body text-center">
+            <h5 class="card-title">Ristretto</h5>
+            <p class="card-text">$3.50</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section id="cart" class="py-3" aria-live="polite">
+    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+      <div class="mr-3">
+        <strong>Your order</strong>
+        <div id="cart-items" class="small text-muted">Your cart is empty.</div>
+      </div>
+      <div class="d-flex align-items-center mt-2 mt-sm-0">
+        <strong id="cart-total" class="mr-3">$0.00</strong>
+        <button id="checkout-button" class="btn btn-dark" type="button" disabled>Checkout</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-2">&copy; 2025 Coffee Shop. All rights reserved.</p>
+     
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const cart = new Map();
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    const checkoutButton = document.getElementById('checkout-button');
+    const checkoutEndpoint = window.location.port === '4242'
+      ? '/create-checkout-session'
+      : 'http://localhost:4242/create-checkout-session';
+
+    document.querySelectorAll('.menu-card').forEach((card) => {
+      const name = card.querySelector('.card-title').textContent.trim();
+      const price = Number(card.querySelector('.card-text').textContent.replace('$', ''));
+      const button = document.createElement('button');
+      button.className = 'btn btn-sm btn-outline-dark add-to-cart';
+      button.type = 'button';
+      button.textContent = 'Add to order';
+      button.addEventListener('click', () => {
+        const item = cart.get(name) || { name, price, quantity: 0 };
+        item.quantity += 1;
+        cart.set(name, item);
+        renderCart();
+      });
+      card.querySelector('.card-body').appendChild(button);
+    });
+
+    function renderCart() {
+      const items = [...cart.values()];
+      const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      cartItems.textContent = items.length
+        ? items.map((item) => `${item.quantity} x ${item.name}`).join(', ')
+        : 'Your cart is empty.';
+      cartTotal.textContent = `$${total.toFixed(2)}`;
+      checkoutButton.disabled = !items.length;
+    }
+
+    checkoutButton.addEventListener('click', async () => {
+      checkoutButton.disabled = true;
+      checkoutButton.textContent = 'Opening checkout...';
+
+      try {
+        const response = await fetch(checkoutEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: [...cart.values()].map(({ name, quantity }) => ({ name, quantity }))
+          })
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || 'The checkout server returned an invalid response. Start the Node server with npm start.');
+        }
+
+        window.location.assign(data.url);
+      } catch (error) {
+        window.alert(error.message);
+        checkoutButton.textContent = 'Checkout';
+        checkoutButton.disabled = false;
+      }
+    });
+
+    const checkoutState = new URLSearchParams(window.location.search).get('checkout');
+    if (checkoutState === 'success') {
+      window.alert('Thanks! Your payment was successful.');
+    } else if (checkoutState === 'cancelled') {
+      window.alert('Checkout was cancelled. Your cart is still here.');
+    }
+  </script>
+</body>
+</html>
